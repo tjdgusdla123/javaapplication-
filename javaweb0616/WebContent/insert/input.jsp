@@ -7,7 +7,7 @@
 <title>입력</title>
 </head>
 <body>
-	<form action="process.jsp">
+	<form action="process.jsp" method="post">
 		<input type="email" name="email" 
 		placeholder="email을 입력하세요" required="required"/>
 		<br/>
