@@ -32,7 +32,6 @@
 	
 	String logfile = 
 		filepath + "/" + filename + ".txt";
-	
 	//현재 프로젝트의 insert 디렉토리에 오늘날짜.txt
 	//파일에 email, password, nickname을 기록
 	java.io.PrintWriter pw = 
