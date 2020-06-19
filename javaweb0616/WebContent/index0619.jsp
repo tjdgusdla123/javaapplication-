@@ -1,3 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +64,11 @@
 	<li><a href="jstlcore.jsp">(1)JSTLCore 이용해서 출력</a></li>
 
 	</ul>
-	
+		<h3>JavaWebApplication 5일차</h3>
+		<ul>
+           <li> <a href="${pageContext.request.contextPath}/authentication/main">model2 디렉토리 패턴을 이용한 페이지 이동</a></li>
+	    <li> jsp 파일에는 EL 과 JSTL을 이용해서 출력하는 코드만 작성하고 처리 작업은 Servlet 과 Java 클래스를 이용하는 형태로 코딩하는 것을 권장하는데 이 방식을 Model2 라고 합니다.</li>
+	</ul>
+
 </body>
 </html>
