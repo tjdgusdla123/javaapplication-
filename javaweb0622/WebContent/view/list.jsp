@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!-- 제어문 사용을 위한 태그 라이브러리를 설정 -->
-<%@ taglib prefix="c" 
-	uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +21,33 @@
 			<tr>
 				<td>&nbsp;${item.code}</td>
 				<td>&nbsp;${item.category}</td>
-				<td>&nbsp;${item.title}</td>
-			</tr>	
-		</c:forEach>	
+				<!-- 기본키의 값을 파라미터로 전송 -->
+				<!-- <td>&nbsp;<a href="detail?code=${item.code}">${item.title}</a></td>-->
+
+				<td>&nbsp;<a href="detail/${item.code}">${item.title}</a></td>
+
+			</tr>
+		</c:forEach>
 	</table>
+		<div align = "center">
+		<c:if test="${prev == true}">
+			<a href="list?no=${startpage-1}">이전</a>
+		</c:if>
+		
+		<c:forEach var="idx" begin="${startpage}"
+		end="${endpage}">
+			<c:if test="${pageno == idx}">
+				${pageno}&nbsp;
+			</c:if>
+			<c:if test="${pageno != idx}">
+				<a href="list?no=${idx}">${idx}</a>&nbsp;
+			</c:if>
+		</c:forEach>
+		
+		<c:if test="${next == true}">
+			<a href="list?no=${endpage+1}">다음</a>
+		</c:if>
+	</div>
 </body>
 </html>
 
