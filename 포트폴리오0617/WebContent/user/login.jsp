@@ -19,12 +19,12 @@
 					<legend class="screen_out">로그인 정보 입력폼</legend>
 					<div class="box_login">
 						<div class="inp_text">
-							<label for="email" class="screen_out">닉네임</label> <input
-								type="email" id="email" name="email" placeholder="닉네임 을력하세요!">
+							<label for="membermail" class="screen_out">닉네임</label> <input
+								type="email" id="membermail" name="membermail" placeholder="닉네임 을력하세요!">
 						</div>
 						<div class="inp_text">
-							<label for="userpw" class="screen_out">비밀번호</label> <input
-								type="password" id="userpw" name="userpw"
+							<label for="memberpassword" class="screen_out">비밀번호</label> <input
+								type="password" id="memberpassword" name="userpw"
 								placeholder="비밀번호를 입력하세요!">
 						</div>
 					</div>

@@ -17,16 +17,16 @@
 		<div align="center" id="msg"></div>
 		<ul>
 			<li>
-				<label for="email">이메일</label> 
-				<input type="text" id="email" name="email" class="textinput" placeholder="이메일 주소를 입력하세요" />
+				<label for="membermail">이메일</label> 
+				<input type="text" id="membermail" name="membermail" class="textinput" placeholder="이메일 주소를 입력하세요" />
 			</li>
 			<li>
-				<label for="userpw">비밀번호</label> 
-				<input type="password" id="userpw" name="userpw" class="textinput" placeholder="비밀번호를 입력하세요"  maxlength="4"/>
+				<label for="memberpassword">비밀번호</label> 
+				<input type="password" id="memberpassword" name="memberpassword" class="textinput" placeholder="비밀번호를 입력하세요"  maxlength="4"/>
 			</li>
 			<li>
-				<label for="userpw1">비밀번호확인</label> 
-				<input type="password" id="userpw1" class="textinput"  placeholder="비밀번호확인" maxlength="4"/>
+				<label for="memberpassword1">비밀번호확인</label> 
+				<input type="password" id="memberpassword1" class="textinput"  placeholder="비밀번호확인" maxlength="4"/>
 			</li>
 
 	         <li>
@@ -34,8 +34,8 @@
 				<input type="text" id="userpw1" class="textinput" placeholder="전화번호를입력하세요" />
 			</li>
 			<li>
-				<label for="nickname">닉네임</label> 
-				<input type="text" id="nickname" class="textinput" placeholder="닉네임을입력하세요" />
+				<label for="membernickname">닉네임</label> 
+				<input type="text" id="membernickname" class="textinput" placeholder="닉네임을입력하세요" />
 				<button >중복확인</button><br/>
 			</li>
 			
