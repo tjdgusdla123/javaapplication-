@@ -1,7 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!-- 제어문 사용을 위한 태그 라이브러리를 설정 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" 
+	uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,15 +23,16 @@
 			<tr>
 				<td>&nbsp;${item.code}</td>
 				<td>&nbsp;${item.category}</td>
+				
 				<!-- 기본키의 값을 파라미터로 전송 -->
-				<!-- <td>&nbsp;<a href="detail?code=${item.code}">${item.title}</a></td>-->
-
-				<td>&nbsp;<a href="detail/${item.code}">${item.title}</a></td>
-
-			</tr>
-		</c:forEach>
+				<!-- <td>&nbsp;<a href="detail?code=${item.code}">${item.title}</a></td>  -->
+				
+				<td>&nbsp;<a href="detail/${item.code}">
+				${item.title}</a></td>
+			</tr>	
+		</c:forEach>	
 	</table>
-		<div align = "center">
+	<div align = "center">
 		<c:if test="${prev == true}">
 			<a href="list?no=${startpage-1}">이전</a>
 		</c:if>

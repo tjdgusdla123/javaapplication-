@@ -1,6 +1,6 @@
 package domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Memberinfotbl {
 	private String membernickname;     // 회원별명
@@ -16,9 +16,9 @@ public class Memberinfotbl {
 		//매개변수가 없는 생성자
 	}
 	
-	//매개변수가 있는 생성자
-		//이미 데이터가 존재하는 경우 set을 호출하지 않고 
-		//한번에 초기화 할 목적으로 생성
+	     //매개변수가 있는 생성자
+		 //이미 데이터가 존재하는 경우 set을 호출하지 않고 
+	     //한번에 초기화 할 목적으로 생성
 	public Memberinfotbl(String membernickname, String membermail, String memberpassword, String memberphonenumber,
 			String memberremove, String memberislogin, Date memberlastlogindate) {
 		super();
