@@ -1,7 +1,7 @@
 package service;
 
 import dao.MemberinfotblDao;
-
+//User의 요청을 처리할 메소드를 구현할 클래스
 public class MemberinfotblServiceImpl implements MemberinfotblService{
 
 	private	MemberinfotblDao memberinfotblDao;
