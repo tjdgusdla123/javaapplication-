@@ -106,6 +106,56 @@ window.addEventListener('load', function(event){
 		
 	});
 	
+	//회원가입 버튼을 누르면
+	registerbtn.addEventListener('click', function(event){
+		//폼의 데이터를 전송할 때는 유효성 검사를 해주어야 합니다.
+		//필수 항목 검사, 형식에 맞는지, 값의 제한이 있는 경우 그 값인지 등
+		if(email.value.trim().length < 1){
+			emailmsg.innerHTML = "이메일은 필수 항목";
+			emailmsg.style.color = "red";
+			return;
+		}
+		//형식 검사 - 정규식을 이용
+		var emailRegExp = 
+			/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		if(emailRegExp.test(email.value) == false){
+			emailmsg.innerHTML = "이메일 형식에 맞지 않습니다.";
+			emailmsg.style.color = "red";
+			return;
+		}
+		
+		if(emailcheck == false){
+			emailmsg.innerHTML = "이미 가입된 이메일입니다.";
+			emailmsg.style.color = "red";
+			return;
+		}
+		if(nicknamecheck == false){
+			nicknamemsg.innerHTML = "사용 중인 닉네임입니다.";
+			nicknamemsg.style.color = "red";
+			return;
+		}
+		
+		//ajax 요청
+		var request = new XMLHttpRequest();
+		request.open('post', 'register', true);
+		//폼의 데이터 생성
+		var formData = new FormData(registerform)
+		//폼의 데이터를 전송
+		request.send(formData);
+		//데이터를 전송하고 결과를 받아왔을 때 
+		request.addEventListener('load', function(event){
+			//alert(event.target.responseText);
+			
+			//JSON 파싱 - 결과를 사용하기 위해서
+			var data = 
+				JSON.parse(event.target.responseText);
+			if(data.result == true){
+				//메인으로 이동
+				location.href = "../";
+			}
+		})
+	});
+	
 });
 
 

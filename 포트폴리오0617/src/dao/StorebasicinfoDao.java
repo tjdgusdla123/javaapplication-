@@ -1,6 +1,6 @@
 package dao;
 
-public class StorebasicinfoDao extends AbstractDao {
+public class StorebasicinfoDao extends MemberinfotblAbstractDao {
 	   //singleton 패턴을 적용하기 위한 코드
 		//인스턴스를 하나만 생성하는 디자인 패턴
 		//모든 곳에서 공유할 데이터를 갖는 클래스나 

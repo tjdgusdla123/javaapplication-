@@ -8,12 +8,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-class AbstractDao {
+class MemberinfotblAbstractDao {
 
 	     //데이터베이스 연동에 필요한 변수
-		private Connection con;
-		private PreparedStatement pstmt;
-		private ResultSet rs;
+		 Connection con;
+		PreparedStatement pstmt;
+		ResultSet rs;
 		
 		//데이터베이스 연결 메소드
 		void connect() {

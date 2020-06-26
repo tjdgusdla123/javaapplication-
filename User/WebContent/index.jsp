@@ -1,3 +1,5 @@
+<%@page import="domain.User"%>
+<%@page import="dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,8 +11,14 @@
 <body>
 
 <%
-   dao.UserDao userDao =dao.UserDao.sharedInstance();
-System.out.println(userDao.nicknameCheck("군계"));
+  //테스트
+  // dao.UserDao userDao =dao.UserDao.sharedInstance();
+//System.out.println(userDao.nicknameCheck("dsa"));
+
+dao.UserDao userDao = dao.UserDao.sharedInstance();
+User user = new User();
+user.setEmail("");
+user.setPassword("");
 
 %>
      <!-- 바로user/main으로 포워딩 하도록 해주는 코드 

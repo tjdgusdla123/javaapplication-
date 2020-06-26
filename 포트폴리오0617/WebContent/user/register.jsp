@@ -9,7 +9,7 @@
 
 <title>회원가입</title>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/register.css">
 </head>
 <body>
 	<form method="post" action="register.jsp" id="registerform" >
@@ -48,6 +48,6 @@
 		</ul>
 	</form>
 </body>
-<script src="js/register.js"></script>
+<script src="${pageContext.request.contextPath}/user/js/register.js"></script>
 </html>
 			
