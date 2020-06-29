@@ -1,14 +1,14 @@
 //스크립트 링크가 body 위에 있다면 window의 load 이벤트 안에 작성
 window.addEventListener('load', function(event){
-	//id를 가지고 필요한 객체들을 찾아오기
+	//id를 가지고 필요한 객체들을 찾아오기                            
 	var registerform = document.getElementById("registerform");
 	var msg = document.getElementById("msg");
 	var membermail = document.getElementById("membermail");
 	var membermailmsg = document.getElementById("membermailmsg");
 	
-	var memberinfopassword = document.getElementById("memberinfopassword");
-	var memberinfopassword1 = document.getElementById("memberinfopassword1");
-	var memberinfopasswordmsg = document.getElementById("varmemberinfopasswordmsg");
+	var memberpassword = document.getElementById("memberpassword");
+	var memberpassword1 = document.getElementById("memberpassword1");
+	var memberpasswordmsg = document.getElementById("memberpasswordmsg");
 	
 	var membernickname = document.getElementById("membernickname");
 	var membernicknamemsg = document.getElementById("membernicknamemsg");
@@ -42,26 +42,26 @@ window.addEventListener('load', function(event){
 		//ajax 요청 객체를 생성
 		var request = new XMLHttpRequest();
 		//요청 생성
-		request.open('get', 
-			'membermailcheck' + '?' + 'membermail=' + membermail.value, true);
+		request.open('get', 'membermailcheck' + '?' + 'membermail=' + membermail.value, true);
 		//요청을 전송
 		request.send('');
 		//결과를 받기 위한 부분 생성
 		request.addEventListener('load', function(event){
 			//결과를 파싱
+			
 			var data = JSON.parse(event.target.responseText);
 			if(data.result == true){
 				membermailmsg.innerHTML = "사용 가능한 이메일<br/>";
 				membermailmsg.style.color = "blue";
 				//membermailmsg 중복 검사를 통과했다고 표시
-				emailcheck = true;
+				membermailcheck = true;
 			}else{
 				membermailmsg.innerHTML = "사용 중 인 이메일<br/>";
 				membermailmsg.style.color = "red";
 				//membermailmsg 중복 검사를 통과 못했다고 표시
 				membermailcheck = false;
 			}
-		})
+		});
 	});
 	
 	//닉네임 중복 검사 통과여부를 저장할 변수
@@ -79,15 +79,12 @@ window.addEventListener('load', function(event){
 		}
 		
 		var request = new XMLHttpRequest();
-		request.open('get',
-			'membernicknamecheck?membernickname='+membernickname.value,
-			true);
+		request.open('get',	'membernicknamecheck?membernickname='+membernickname.value,true);
 		request.send('');
 		//데이터를 가져왔을 때 호출될 메소드를 설정
 		request.addEventListener(
 			'load', function(event){
-			var data = 
-				JSON.parse(event.target.responseText);
+			var data = JSON.parse(event.target.responseText);
 			if(data.result == true){
 				//메시지 출력
 				membernicknamemsg.innerHTML = '사용 가능한 별명<br/>';
@@ -116,15 +113,14 @@ window.addEventListener('load', function(event){
 			return;
 		}
 		//형식 검사 - 정규식을 이용
-		var memberemailRegExp = 
-			/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var membermailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		if(membermailRegExp.test(membermail.value) == false){
 			membermailmsg.innerHTML = "이메일 형식에 맞지 않습니다.<br/>";
 			membermailmsg.style.color = "red";
 			return;
 		}
 		
-		if(memberemailcheck == false){
+		if(membermailcheck == false){
 			membermailmsg.innerHTML = "이미 가입된 이메일입니다.<br/>";
 			membermailmsg.style.color = "red";
 			return;
@@ -144,11 +140,10 @@ window.addEventListener('load', function(event){
 		request.send(formData);
 		//데이터를 전송하고 결과를 받아왔을 때 
 		request.addEventListener('load', function(event){
-			//alert(event.target.responseText);
+			alert(event.target.responseText);
 			
 			//JSON 파싱 - 결과를 사용하기 위해서
-			var data = 
-				JSON.parse(event.target.responseText);
+			var data = JSON.parse(event.target.responseText);
 			if(data.result == true){
 				//메인으로 이동
 				location.href = "../";

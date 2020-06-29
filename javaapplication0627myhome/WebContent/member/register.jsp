@@ -8,10 +8,8 @@
 <title>회원가입</title>
 <script src="${pageContext.request.contextPath}/member/js/register.js"></script>
 <link
-	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/register.css">
+	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"rel="stylesheet">
+<link rel="stylesheet"href="${pageContext.request.contextPath}/css/register.css">
 </head>
 <body>
 	<!-- ajax로 요청하는 경우에는 method가 필요없음 id 만 설정 - 웹 만 할 때는 method를 post로 설정
@@ -32,7 +30,7 @@
 
 			<li><label for="memberpassword1">비밀번호확인</label> <input
 				type="password" name="memberpassword1" id="memberpassword1"  class="textinput"
-				placeholder="한번더입력해주세요" /><br /></li>
+				placeholder="한번더입력해주세요"  maxlength="4" /><br /></li>
 			
 			<il> <label for="membernickname">닉네임</label> <input type="text"  class="textinput" placeholder="닉네임을입력하세요"
 				name=membernickname id="membernickname" />

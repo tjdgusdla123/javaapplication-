@@ -6,11 +6,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface MemberinfotblService {
 	
-	 public void membermailCheck(HttpServletRequest request, HttpServletResponse response);
+	    // email 중복 검사를 위한 메소드
+		public void membermailCheck(HttpServletRequest request, HttpServletResponse response);
 
-	 public void membernicknameCheck(HttpServletRequest request, HttpServletResponse response);
+		// nickname 중복 검사를 위한 메소드
+		public void membernicknameCheck(HttpServletRequest request, HttpServletResponse response);
 
-		
-		
-}
+		// 회원가입을 위한 메소드
+		public void register(HttpServletRequest request, HttpServletResponse response);
 
+		// 로그인을 위한 메소드
+		public void login(HttpServletRequest request, HttpServletResponse response);
+	
+	}

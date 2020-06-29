@@ -1,5 +1,8 @@
 package dao;
 
+import domain.Memberinfotbl;
+
+
 public class MemberinfotblDao extends MemberinfotblAbstractDao {
     //singleton 패턴을 적용하기 위한 코드
 	//인스턴스를 하나만 생성하는 디자인 패턴
@@ -68,6 +71,56 @@ public class MemberinfotblDao extends MemberinfotblAbstractDao {
 		close();		
 		System.out.println("membermaildao확인"+result);
 		return result;
+	}
+	
+	public int register(Memberinfotbl memberinfotbl) {
+		int result = -1;
+		connect();
+		try {
+			pstmt = con.prepareStatement(
+				"insert into memberinfotbl("
+				+ "memberemail, memberpassword,membernickname, )"
+				+ " values(?,?,?,?)");
+			pstmt.setString(1, memberinfotbl.getMembermail());
+			pstmt.setString(2, memberinfotbl.getMemberpassword());
+			pstmt.setString(3, memberinfotbl.getMembernickname());
+	
+			
+			result = pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("멤버DAO:" + e.getMessage());
+			e.printStackTrace();
+		}
+		close();
+		return result;
+
+	}
+	//로그인 처리를 위한 메소드
+	public Memberinfotbl login(String membernickname) {
+		//없는 아이디인 경우는 null을 리턴
+		Memberinfotbl memberinfotbl = null;
+		connect();
+		try {
+			//SQL 만들기
+			//user 테이블에서 id를 가지고 데이터를 찾아오기
+			pstmt = con.prepareStatement(
+				"select * from memberinfotbl where id=?");
+			pstmt.setString(1, membernickname);
+			//데이터 읽어서 저장
+			if(rs.next()) {
+				memberinfotbl = new Memberinfotbl();
+				memberinfotbl.setMembernickname(rs.getString("membernickname"));
+				memberinfotbl.setMemberpassword(rs.getString("Membdrpassword"));
+				memberinfotbl.setMembernickname(rs.getString("Membermail"));
+				
+			}	
+		}catch(Exception e) {
+			System.out.println("DAO:" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		close();
+		return memberinfotbl;
 	}
 	
 }
